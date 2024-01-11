@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import pickle
+
+with open('/Users/siddharthkms/Documents/Loan Prediction Project/FINAL/gnb_model.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
 arr=[]
 tab1, tab2= st.tabs(["Home", "About"])
 
@@ -117,15 +121,27 @@ if on:
     with container5:
             c11 = ["Absolutely!","Maybe..","I don't think so"]
             option10 = st.selectbox('Do you think your loan will be approved💰?',c11,index=None,placeholder="What do you think?😅")
-    bt= st.button("Submit",type='primary')
-    
 
+
+
+    
+    def predict_loan_status():
+        prediction = model.predict([arr])
+        return prediction
+        
+    but1 = st.button('Predict!',type='primary')
+    if but1:
+        if len(arr)!= 11:
+            st.error("Please fill all the details!😅")
+        if predict_loan_status() == 1:
+            st.success("Congratulations! Your loan has been approved!🤩")
+        else:
+            st.error("Sorry! Your loan has been rejected!😔")
 
 
 else:
     st.warning("You need to agree.")
 
-#COLUMNS
 
 
     
