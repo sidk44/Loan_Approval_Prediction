@@ -3,4 +3,4 @@ This project explores the efficiency of machine learning models like Random Fore
 
 The primary objective is to showcase the seamless integration of machine learning models into a web interface using the Streamlit framework. The app.py file encapsulates the code responsible for creating the simple yet interactive website interface.
 
-Dataset Link: https://www.kaggle.com/datasets/sonalisingh1411/loan-approval-prediction?select=Training+Dataset.csv
+
